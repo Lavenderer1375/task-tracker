@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import TaskTile from "./TaskTiles";
-import Loading from "../modules/Loading";
+import Loading from "../Layout/Loading";
 
 const TaskList = ({ tasks, isFetching }) => (
   <div className="flex-1 px-4">
