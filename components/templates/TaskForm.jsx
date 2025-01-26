@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
+const URL = "https://task-server-roan-eight.vercel.app/data";
 const TaskForm = ({ onTaskCreated }) => {
   const [task, setTask] = useState({
     title: "",
@@ -30,7 +31,7 @@ const TaskForm = ({ onTaskCreated }) => {
       id: Date.now(), // Generate a unique ID based on timestamp
     };
 
-    const res = await fetch("http://localhost:3001/data", {
+    const res = await fetch(URL, {
       method: "POST",
       body: JSON.stringify(newTask),
       headers: {

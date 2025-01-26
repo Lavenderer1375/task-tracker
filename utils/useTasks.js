@@ -1,6 +1,6 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 
-const URL = "http://localhost:3001/data";
+const URL = "https://task-server-roan-eight.vercel.app/data";
 const fetchTasks = async ({
   pageParam = 0,
   filters = {},
