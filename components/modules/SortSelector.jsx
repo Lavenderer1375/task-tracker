@@ -14,6 +14,7 @@ const SortSelector = ({ sort, onSortChange }) => (
         className="border-gray-300 shadow-sm p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
         <option value="due_date">Due Date</option>
+        <option value="none">None</option>
         <option value="priority">Priority</option>
       </select>
     </div>
