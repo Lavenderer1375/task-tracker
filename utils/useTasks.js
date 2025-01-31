@@ -2,7 +2,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 
 const URL = "https://task-server-roan-eight.vercel.app/data";
 const fetchTasks = async ({
-  pageParam = 0,
+  pageParam = 1,
   filters = {},
   sort = "due_date",
 }) => {
@@ -20,13 +20,16 @@ const fetchTasks = async ({
   const res = await fetch(query);
   if (!res.ok) throw new Error("Failed to fetch tasks");
   const data = await res.json();
-  return { tasks: data, nextPage: pageParam + 1, hasMore: data.length > 0 };
+  return {
+    tasks: data,
+    nextPage: data.length === 20 ? pageParam + 1 : undefined,
+  };
 };
 
 const useTasks = (filters, sort) => {
   return useInfiniteQuery({
     queryKey: ["tasks", filters, sort],
-    queryFn: ({ pageParam = 0 }) => fetchTasks({ pageParam, filters, sort }),
+    queryFn: ({ pageParam = 1 }) => fetchTasks({ pageParam, filters, sort }),
     getNextPageParam: (lastPage) =>
       lastPage.hasMore ? lastPage.nextPage : null,
   });
