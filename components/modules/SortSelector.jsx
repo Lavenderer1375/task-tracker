@@ -15,6 +15,7 @@ const SortSelector = ({ sort, onSortChange }) => (
       >
         <option value="due_date">Due Date</option>
         <option value="priority">Priority</option>
+        <option value="">None</option>
       </select>
     </div>
   </div>
