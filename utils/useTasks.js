@@ -22,7 +22,8 @@ const fetchTasks = async ({
   const data = await res.json();
   return {
     tasks: data,
-    nextPage: data.length === 20 ? pageParam + 1 : undefined,
+    nextPage: pageParam + 1,
+    hasMore: data?.length === 20,
   };
 };
 
