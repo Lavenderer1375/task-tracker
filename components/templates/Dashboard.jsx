@@ -8,7 +8,7 @@ import DarkModeToggle from "../Layout/DarkMode";
 
 const Dashboard = () => {
   const [filters, setFilters] = useState({ status: "", priority: "" });
-  const [sort, setSort] = useState("due_date");
+  const [sort, setSort] = useState("");
   const [isFormVisible, setIsFormVisible] = useState(false); // State to toggle form visibility
 
   const { data, fetchNextPage, hasNextPage, isFetching, isError, error } =
